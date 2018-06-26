@@ -1,5 +1,4 @@
-{% set version = '3.8.4' %}
-
+{% set version = '3.8.5' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +9,12 @@ package:
 source:
   fn: Deriv_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/Deriv_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/Deriv/Deriv_{{ version }}.tar.gz
-  sha256: de4b7dfd4653dec9ae49987b8588c5ecfd7ef59081d9a1c55834da94bb5342d1
+    - {{ cran_mirror }}/src/contrib/Deriv_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/Deriv/Deriv_{{ version }}.tar.gz
+  sha256: 40d43da3a8e93068874415995fdeba9ca2ef109b55211b228b43d1fa85e62520
 
 build:
+  merge_build_host: True  # [win]
   number: 0
   skip: true  # [win32]
   rpaths:
@@ -23,14 +23,14 @@ build:
 
 requirements:
   build:
+  host:
     - r-base
-
   run:
     - r-base
 
 test:
   commands:
-    - $R -e "library('Deriv')"  # [not win]
+    - $R -e "library('Deriv')"           # [not win]
     - "\"%R%\" -e \"library('Deriv')\""  # [win]
 
 about:
