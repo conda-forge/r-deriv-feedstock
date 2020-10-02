@@ -7,16 +7,15 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: Deriv_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/Deriv_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/Deriv/Deriv_{{ version }}.tar.gz
   sha256: f812256edbd8ad91d798a6c56825086aadf62b60de608011dd8e6c9c1e08add8
 
 build:
-  noarch: generic
   merge_build_host: true  # [win]
   number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
@@ -36,10 +35,11 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=Deriv
-  license: GPL (>= 3)
+  license: GPL-3.0-or-later
   summary: R-based solution for symbolic differentiation. It admits user-defined function as well as function substitution in arguments of functions to be differentiated. Some symbolic simplification is part of the work.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
