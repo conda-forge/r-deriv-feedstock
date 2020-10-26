@@ -5,11 +5,9 @@ Home: https://CRAN.R-project.org/package=Deriv
 
 Package license: GPL-3.0-or-later
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-deriv-feedstock/blob/master/LICENSE.txt)
 
 Summary: R-based solution for symbolic differentiation. It admits user-defined function as well as function substitution in arguments of functions to be differentiated. Some symbolic simplification is part of the work.
-
-
 
 Current build status
 ====================
