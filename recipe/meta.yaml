@@ -1,4 +1,4 @@
-{% set version = "4.1.0" %}
+{% set version = "4.1.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/Deriv_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/Deriv/Deriv_{{ version }}.tar.gz
-  sha256: f812256edbd8ad91d798a6c56825086aadf62b60de608011dd8e6c9c1e08add8
+  sha256: ac8778ad78826a067eb7754892895375da30d346d4b8f5e365675dfba286ecbb
 
 build:
   merge_build_host: true  # [win]
